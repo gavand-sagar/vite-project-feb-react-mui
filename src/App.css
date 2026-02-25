@@ -1,0 +1,9 @@
+.show {
+  height: 200px;
+  transition: 1s;
+}
+.hide {
+  height: 0;
+  transition: 1s;
+  overflow: hidden;
+}
