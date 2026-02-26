@@ -12,12 +12,22 @@ export default function Lab2({ }: Props) {
         dob: ''
     })
 
-    useEffect(() => {
-        console.log("formObj changed")
-    }, [formObj])
+    let [errorObj, setErrorObj] = useState<any>({
+        username: '',
+        password: '',
+        email: '',
+        city: '',
+        isAgreed: '',
+        dob: ''
+    })
 
     useEffect(() => {
-        console.log("username changed")
+        const duplicateErrorObj = { ...errorObj }
+        duplicateErrorObj['username'] = ''
+        if (formObj.username.length <= 3) {
+            duplicateErrorObj['username'] = "username should be minimum 3 charactors long"
+        }
+        setErrorObj(duplicateErrorObj)
     }, [formObj.username])
 
     function handleChange(event: any) {
@@ -43,6 +53,7 @@ export default function Lab2({ }: Props) {
     return (
         <div>
             <input name='username' placeholder='username' type='text' onChange={handleChange} />
+            <span>{errorObj.username}</span>
             <br />
             <br />
             <input name='password' placeholder='password' type='text' onChange={handleChange} />
