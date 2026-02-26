@@ -13,7 +13,8 @@ export default function Lab2({ }: Props) {
         password: '',
         email: '',
         city: '',
-        isAgreed: false
+        isAgreed: false,
+        dob: ''
     })
 
     function handleChange(event: any) {
@@ -48,6 +49,9 @@ export default function Lab2({ }: Props) {
             <br />
             <br />
             <input name='email' placeholder='email' type='text' onChange={handleChange} />
+            <br />
+            <br />
+            <input name='dob' placeholder='dob' type='date' onChange={handleChange} />
             <br />
             <br />
             <label>I agree</label>
