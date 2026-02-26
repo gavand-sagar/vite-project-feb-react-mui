@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type Props = {}
 
 export default function Lab2({ }: Props) {
-    // let [username, setUsername] = useState<string>('') //
-    // let [password, setPassword] = useState<string>('') //
-    // let [email, setEmail] = useState<string>('') //
-    // let [city, setCity] = useState<string>('') //
-
     let [formObj, setFormObj] = useState<any>({
         username: '',
         password: '',
@@ -16,6 +11,14 @@ export default function Lab2({ }: Props) {
         isAgreed: false,
         dob: ''
     })
+
+    useEffect(() => {
+        console.log("formObj changed")
+    }, [formObj])
+
+    useEffect(() => {
+        console.log("username changed")
+    }, [formObj.username])
 
     function handleChange(event: any) {
         // need duplicate of object
