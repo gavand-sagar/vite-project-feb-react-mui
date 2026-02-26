@@ -1,11 +1,11 @@
 import './App.css'
-import Lab2 from './HandleInput/Lab2'
+import Lab3 from './HandleInput/Lab3'
 
 
 function App() {
   return (
     <>
-      <Lab2/>
+      <Lab3/>
     </>
   )
 }
