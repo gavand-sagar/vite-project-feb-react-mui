@@ -1,13 +1,26 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 type Props = {}
 
 export default function Lab3({ }: Props) {
     let refObject = useRef(0);
 
-    let [value, setValue] = useState(0)                
+    let [value, setValue] = useState(0)
 
-    let normalVariable = 0  /// not good at all
+
+    // let timerRef = useRef(0);
+
+    // useEffect(() => {
+    //     timerRef.current = setInterval(() => {
+
+    //     }, 1000);
+
+    //     return ()=>{
+    //         clearInterval(timerRef.current)
+    //     }
+    // }, [])
+
+    let normalVariable = 0  /// not good at all (useless)
 
     function RefChange() {
         normalVariable = normalVariable + 1;
