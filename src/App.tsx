@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Lab3 from './HandleInput/Lab3'
 import Lab4 from './HandleInput/Lab4'
@@ -12,7 +13,13 @@ import UseReducerDemo from './Reducer/UseReducerDemo'
 function App() {
   return (
     <>
-      <CustomComponentWithHookForm/>
+      <Routes>
+        <Route path='/Products' element={<UseReducerDemo />} />
+        <Route path='/Products/:name/:something' element={<MUIAndHookForm />} />
+        <Route path='/PropDrillA' element={<PropDrillA />} />
+        <Route path='/ReactHookForm' element={<ReactHookForm />} />
+        <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
+      </Routes>
     </>
   )
 }
