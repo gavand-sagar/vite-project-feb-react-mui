@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 
@@ -15,17 +16,29 @@ export default function ReactHookForm() {
         console.log(data)
     }
 
+    // useEffect(() => {
+    //     console.log('errors.username', errors.username)
+    // }, [errors.username])
+
+    // useEffect(() => {
+    //     console.log('errors.password', errors.password)
+    // }, [errors.password])
+
     return (
         /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
         <form onSubmit={handleSubmit(onSubmit)}>
 
-            <input {...register('username', { required: true })} />
+            <input className={errors.username ? "error-box" : ""} {...register('username', {
+                required: { value: true, message: "Username is required" },
+                minLength: { value: 3, message: 'Minimum 3 letters' },
+                maxLength: { value: 30, message: 'Maximum 30 letters' }
+            })} />
             <br />
-            {errors.username && <span>Username Required</span>}
+            {errors.username && <span className="error-text">{errors.username.message}</span>}
             <br />
-            <input {...register('password', { required: true })} />
+            <input {...register('password', { required: { value: true, message: 'Password is required' } })} />
             <br />
-            {errors.password && <span>Password Required</span>}
+            {errors.password && <span className="error-text">{errors.password.message}</span>}
             <br />
             <input type="submit" />
         </form>

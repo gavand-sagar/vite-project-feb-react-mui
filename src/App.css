@@ -7,3 +7,12 @@
   transition: 1s;
   overflow: hidden;
 }
+
+.error-text{
+  color: red;
+}
+
+.error-box{
+  border-color: red;
+  outline: none;
+}
