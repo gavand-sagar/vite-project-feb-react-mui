@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ProductItem from './ProductItem'
+import { CartContext } from '../data/CartContext'
 
 type Props = {
-    setCartInfo: React.Dispatch<React.SetStateAction<any[]>>
-    cartInfo: any[]
 }
 
-export default function ProductList({ setCartInfo, cartInfo }: Props) {
+export default function ProductList({ }: Props) {
     const productList = [{
         title: 'mobile'
     }, {
         title: 'laptop'
     }]
+
+    const { cartInfo } = useContext(CartContext)
 
 
     return (
@@ -23,7 +24,7 @@ export default function ProductList({ setCartInfo, cartInfo }: Props) {
             <h3>Product List</h3>
             <span>In Cart: {cartInfo.length}</span>
             {
-                productList.map(x => <ProductItem title={x.title} setCartInfo={setCartInfo} cartInfo={cartInfo} />)
+                productList.map(x => <ProductItem title={x.title} />)
             }
         </fieldset>
     )
