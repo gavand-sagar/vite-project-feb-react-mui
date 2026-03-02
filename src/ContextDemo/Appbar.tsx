@@ -1,9 +1,11 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+    cartInfo: any[]
+}
 
-export default function Appbar({}: Props) {
-  return (
-    <fieldset>Appbar</fieldset>
-  )
+export default function Appbar({ cartInfo }: Props) {
+    return (
+        <fieldset>Appbar total Items {cartInfo.length}</fieldset>
+    )
 }

@@ -1,8 +1,12 @@
 import React from 'react'
+import ProductItem from './ProductItem'
 
-type Props = {}
+type Props = {
+    setCartInfo: React.Dispatch<React.SetStateAction<any[]>>
+    cartInfo: any[]
+}
 
-export default function Cart({ }: Props) {
+export default function Cart({ setCartInfo, cartInfo }: Props) {
     const productList = [{
         title: 'mobile'
     }, {
@@ -16,9 +20,7 @@ export default function Cart({ }: Props) {
         }}>
             <h3>Cart</h3>
             {
-                productList.map(x => <fieldset style={{ margin: '5px' }}>
-                    {x.title} <button>Add</button>
-                </fieldset>)
+                productList.map(x => <ProductItem setCartInfo={setCartInfo} cartInfo={cartInfo} title={x.title} />)
             }
         </fieldset>
     )
