@@ -8,6 +8,7 @@ import ReactHookForm from './ReactHookForm.tsx/Reacthookform'
 import PropDrillA from './Reducer/PropDrill'
 import UseReducerCart from './Reducer/UseReducerCart'
 import UseReducerDemo from './Reducer/UseReducerDemo'
+import MainApp from './ContextDemo/MainApp'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/PropDrillA' element={<PropDrillA />} />
         <Route path='/ReactHookForm' element={<ReactHookForm />} />
         <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
+        <Route path='/' element={<MainApp />} />
       </Routes>
     </>
   )
