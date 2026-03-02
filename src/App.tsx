@@ -9,12 +9,14 @@ import PropDrillA from './Reducer/PropDrill'
 import UseReducerCart from './Reducer/UseReducerCart'
 import UseReducerDemo from './Reducer/UseReducerDemo'
 import MainApp from './ContextDemo/MainApp'
+import MuiTheme from './MUITheme/MuiTheme'
 
 
 function App() {
   return (
     <>
       <Routes>
+        <Route path='/MuiTheme' element={<MuiTheme />} />
         <Route path='/Products' element={<UseReducerDemo />} />
         <Route path='/Products/:name/:something' element={<MUIAndHookForm />} />
         <Route path='/PropDrillA' element={<PropDrillA />} />
