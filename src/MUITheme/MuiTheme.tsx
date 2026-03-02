@@ -26,6 +26,7 @@ import {
 } from '@mui/material';
 import { blue, grey, orange, teal } from '@mui/material/colors';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 const lightTheme = createTheme({
   palette: {
     mode: 'light',
@@ -84,10 +85,11 @@ const darkTheme = createTheme({
 
 type Props = {};
 
-export default function MuiTheme({}: Props) {
+export default function MuiTheme({ }: Props) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [tabValue, setTabValue] = useState(0);
   const theme = isDarkMode ? darkTheme : lightTheme;
+  const { username, email } = useSelector((store: any) => store.users)
 
   return (
     <ThemeProvider theme={theme}>
@@ -107,6 +109,9 @@ export default function MuiTheme({}: Props) {
             />
           </Toolbar>
         </AppBar>
+
+        <Typography variant="h5"> Global Username = {username}</Typography>
+        <Typography variant="h5"> Global Email = {email}</Typography>
 
         <Box sx={{ p: 3, maxWidth: 800, mx: 'auto' }}>
           <Typography variant="h5" gutterBottom color="text.primary">
