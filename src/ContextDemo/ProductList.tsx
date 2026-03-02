@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 type Props = {}
 
@@ -8,6 +8,8 @@ export default function ProductList({ }: Props) {
     }, {
         title: 'laptop'
     }]
+
+    const [cartInfo, setCartInfo] = useState<any[]>([])
     return (
         <fieldset style={{
             display: 'inline-block', width: '40%',
@@ -15,9 +17,10 @@ export default function ProductList({ }: Props) {
             height: '300px'
         }}>
             <h3>Product List</h3>
+            <span>In Cart: {cartInfo.length}</span>
             {
                 productList.map(x => <fieldset style={{ margin: '5px' }}>
-                    {x.title} <button>Add</button>
+                    {x.title} <button onClick={() => setCartInfo([...cartInfo, x.title])}>Add</button>
                 </fieldset>)
             }
         </fieldset>
