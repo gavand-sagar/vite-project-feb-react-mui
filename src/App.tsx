@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Lab3 from './HandleInput/Lab3'
 import Lab4 from './HandleInput/Lab4'
@@ -12,11 +12,35 @@ import MainApp from './ContextDemo/MainApp'
 import MuiTheme from './MUITheme/MuiTheme'
 import SimpleRedux from './Redux-demos/components/SimpleRedux'
 import SimpleRedux2 from './Redux-demos/components/SimpleRedux2'
+import { Box, Button } from '@mui/material'
 
 
 function App() {
   return (
     <>
+      <Box padding={2} gap={1} display={'flex'} flexWrap={'wrap'}>
+        <Link to={'/SimpleRedux2'}>
+          <Button variant='contained'>Simple Redux 2</Button>
+        </Link>
+         <Link to={'/SimpleRedux'}>
+          <Button variant='contained'>Simple Redux</Button>
+        </Link>
+         <Link to={'/MuiTheme'}>
+          <Button variant='contained'>Mui Theme</Button>
+        </Link>
+         <Link to={'/Products'}>
+          <Button variant='contained'>Products</Button>
+        </Link>
+         <Link to={'/PropDrillA'}>
+          <Button variant='contained'>Prop Drilling</Button>
+        </Link>
+         <Link to={'/ReactHookForm'}>
+          <Button variant='contained'>React Hook Form</Button>
+        </Link>
+         <Link to={'/UseReducerDemo'}>
+          <Button variant='contained'>Use Reducer Demo</Button>
+        </Link>
+      </Box>
       <Routes>
         <Route path='/SimpleRedux2' element={<SimpleRedux2 />} />
         <Route path='/SimpleRedux' element={<SimpleRedux />} />
