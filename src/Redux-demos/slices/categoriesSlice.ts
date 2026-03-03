@@ -3,13 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 export const categoriesSlice = createSlice({
     name: 'categories',
     initialState: {
-        items: ["laptop", "mobile", "tv", 'lamp']
+        items: ["laptop", "mobile", "tv", 'lamp'],
+        value: 0,
+        username: 'sagar'
     },
     reducers: {
         removeLastCategory: (state) => {
             const oldArray = [...state.items]
             oldArray.pop()
+            // return {
+            //     value: state.value, // exctly same prev data
+            //     username: state.username, // exctly same prev data
+            //     items: oldArray
+            // }
+
             return {
+                ...state,
                 items: oldArray
             }
         },
@@ -18,11 +27,13 @@ export const categoriesSlice = createSlice({
             const newItems = [...state.items]
             newItems.push(data)
             return {
+                ...state,
                 items: newItems
             }
         },
-        resetAll: () => {
+        resetAll: (state) => {
             return {
+                ...state,
                 items: []
             }
         }
