@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeUsernameToSuperman } from '../slices/userSlice'
 import { Button, TextField } from '@mui/material'
-import { addNewCategory, removeLastCategory } from '../slices/categoriesSlice'
+import { addNewCategory, removeLastCategory, resetAll } from '../slices/categoriesSlice'
 
 type Props = {}
 
@@ -30,6 +30,10 @@ export default function SimpleRedux({ }: Props) {
         dispatch(addNewCategory(value))
     }
 
+    function resetAllCategories() {
+        dispatch(resetAll())
+    }
+
     return (
         <div>
             <h1>SimpleRedux</h1>
@@ -39,7 +43,7 @@ export default function SimpleRedux({ }: Props) {
 
             <hr />
             <div>
-                <Button variant='contained'>Clear</Button>
+                <Button variant='contained' onClick={resetAllCategories}>Clear</Button>
             </div>
             <div>
                 <Button variant='contained' onClick={popCategory}>Pop</Button>

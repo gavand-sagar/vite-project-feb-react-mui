@@ -20,8 +20,13 @@ export const categoriesSlice = createSlice({
             return {
                 items: newItems
             }
+        },
+        resetAll: () => {
+            return {
+                items: []
+            }
         }
     }
 })
 
-export const { removeLastCategory, addNewCategory } = categoriesSlice.actions
+export const { removeLastCategory, addNewCategory, resetAll } = categoriesSlice.actions
