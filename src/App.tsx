@@ -20,6 +20,7 @@ import {
 } from '@tanstack/react-query'
 import TanstackWithParam from './Tanstack/TanstackWithParam'
 import Todo from './Tanstack/Todo'
+import Counter from './Counter'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -66,6 +67,9 @@ function App() {
         <Link to={'/TanstackTodos'}>
           <Button variant='contained'>Tanstack Todo</Button>
         </Link>
+        <Link to={'/CounterClassComponent'}>
+          <Button variant='contained'>Counter Class Component</Button>
+        </Link>
       </Box>
       <Routes>
         <Route path='/SimpleRedux2' element={<SimpleRedux2 />} />
@@ -80,6 +84,7 @@ function App() {
         <Route path='/Tanstack' element={<Tanstack />} />
         <Route path='/TanstackWithParam' element={<TanstackWithParam />} />
         <Route path='/TanstackTodos' element={<Todo />} />
+        <Route path='/CounterClassComponent' element={<Counter value={6}/>} />
         <Route path='/' element={<MainApp />} />
       </Routes>
     </QueryClientProvider>
