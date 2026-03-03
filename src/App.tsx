@@ -22,23 +22,26 @@ function App() {
         <Link to={'/SimpleRedux2'}>
           <Button variant='contained'>Simple Redux 2</Button>
         </Link>
-         <Link to={'/SimpleRedux'}>
+        <Link to={'/SimpleRedux'}>
           <Button variant='contained'>Simple Redux</Button>
         </Link>
-         <Link to={'/MuiTheme'}>
+        <Link to={'/MuiTheme'}>
           <Button variant='contained'>Mui Theme</Button>
         </Link>
-         <Link to={'/Products'}>
+        <Link to={'/Products'}>
           <Button variant='contained'>Products</Button>
         </Link>
-         <Link to={'/PropDrillA'}>
+        <Link to={'/PropDrillA'}>
           <Button variant='contained'>Prop Drilling</Button>
         </Link>
-         <Link to={'/ReactHookForm'}>
+        <Link to={'/ReactHookForm'}>
           <Button variant='contained'>React Hook Form</Button>
         </Link>
-         <Link to={'/UseReducerDemo'}>
+        <Link to={'/UseReducerDemo'}>
           <Button variant='contained'>Use Reducer Demo</Button>
+        </Link>
+        <Link to={'/ContextDemo'}>
+          <Button variant='contained'>Context Demo</Button>
         </Link>
       </Box>
       <Routes>
@@ -50,6 +53,7 @@ function App() {
         <Route path='/PropDrillA' element={<PropDrillA />} />
         <Route path='/ReactHookForm' element={<ReactHookForm />} />
         <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
+        <Route path='/ContextDemo' element={<MainApp />} />
         <Route path='/' element={<MainApp />} />
       </Routes>
     </>
