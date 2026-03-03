@@ -13,11 +13,17 @@ import MuiTheme from './MUITheme/MuiTheme'
 import SimpleRedux from './Redux-demos/components/SimpleRedux'
 import SimpleRedux2 from './Redux-demos/components/SimpleRedux2'
 import { Box, Button } from '@mui/material'
+import Tanstack from './Tanstack/Tanstack'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Box padding={2} gap={1} display={'flex'} flexWrap={'wrap'}>
         <Link to={'/SimpleRedux2'}>
           <Button variant='contained'>Simple Redux 2</Button>
@@ -43,6 +49,9 @@ function App() {
         <Link to={'/ContextDemo'}>
           <Button variant='contained'>Context Demo</Button>
         </Link>
+        <Link to={'/Tanstack'}>
+          <Button variant='contained'>Tanstack Demo</Button>
+        </Link>
       </Box>
       <Routes>
         <Route path='/SimpleRedux2' element={<SimpleRedux2 />} />
@@ -54,9 +63,10 @@ function App() {
         <Route path='/ReactHookForm' element={<ReactHookForm />} />
         <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
         <Route path='/ContextDemo' element={<MainApp />} />
+        <Route path='/Tanstack' element={<Tanstack />} />
         <Route path='/' element={<MainApp />} />
       </Routes>
-    </>
+    </QueryClientProvider>
   )
 }
 
