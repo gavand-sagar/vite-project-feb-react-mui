@@ -18,6 +18,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import TanstackWithParam from './Tanstack/TanstackWithParam'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -58,6 +59,9 @@ function App() {
         <Link to={'/Tanstack'}>
           <Button variant='contained'>Tanstack Demo</Button>
         </Link>
+        <Link to={'/TanstackWithParam'}>
+          <Button variant='contained'>Tanstack Param Demo</Button>
+        </Link>
       </Box>
       <Routes>
         <Route path='/SimpleRedux2' element={<SimpleRedux2 />} />
@@ -70,6 +74,7 @@ function App() {
         <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
         <Route path='/ContextDemo' element={<MainApp />} />
         <Route path='/Tanstack' element={<Tanstack />} />
+        <Route path='/TanstackWithParam' element={<TanstackWithParam />} />
         <Route path='/' element={<MainApp />} />
       </Routes>
     </QueryClientProvider>
