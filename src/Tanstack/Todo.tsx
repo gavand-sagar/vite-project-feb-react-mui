@@ -34,7 +34,7 @@ export default function Todo({ }: Props) {
         return axios.post('/api/todos', { title, description, dueDate })
     }
 
-    const createTodoMutation = useMutation({
+    const { mutate, isPending } = useMutation({
         mutationFn: addTodo,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['todos'] })
@@ -42,7 +42,7 @@ export default function Todo({ }: Props) {
     })
 
     function mySubmit(data: TodoType) {
-        createTodoMutation.mutate(data)
+        mutate(data)
     }
 
     return (
@@ -58,10 +58,10 @@ export default function Todo({ }: Props) {
                 <div>
                     <input placeholder='dueDate' {...register('dueDate')} type='date' />
                 </div>
-                <button type='submit'>Save Todo</button>
+                <button disabled={isPending} type='submit'>Save Todo</button>
             </form>
 
-            <button onClick={() => refetch()}>Refetch</button>
+            <button disabled={isPending} onClick={() => refetch()}>Refetch</button>
 
             <hr />
             {
