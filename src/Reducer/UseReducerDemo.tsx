@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
+import Mybutton from '../Mybutton'
 
 type Props = {}
 
@@ -21,25 +22,31 @@ export default function UseReducerDemo({ }: Props) {
 
     const [counter, setState] = useState(0)
 
-    useEffect(() => {
-        if (Math.random() > 0.5) {
-            throw Error("test error")
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (Math.random() > 0.5) {
+    //         throw Error("test error")
+    //     }
+    // }, [])
 
     return (
         <div>
             <h1>UseReducerDemo</h1>
 
-            value : {value}
+            <Mybutton onClick={() => console.log('clicked')}>Save</Mybutton>
+            <Mybutton onMouseEnter={()=> console.log("Hover")}>Save</Mybutton>
+            <Mybutton>Update</Mybutton>
+            <Mybutton>
+                <h1>Hey</h1>
+            </Mybutton>
+
+            {/* value : {value}
             <br />
             <br />
-            {/* RUN - JUST THE EVENT */}
             <button onClick={() => dispatch({ type: 'inc' })}>Increment</button>
             <button onClick={() => dispatch({ type: 'dec' })}>Decrement</button>
             <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
 
-            <button onClick={() => setState(value + 10)}>Inc</button>
+            <button onClick={() => setState(value + 10)}>Inc</button> */}
         </div>
     )
 }
