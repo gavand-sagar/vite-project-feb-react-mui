@@ -1,4 +1,4 @@
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, Pagination } from '@mui/material'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -22,11 +22,12 @@ export default function Todo({ }: Props) {
     // }, [])
 
     const queryClient = useQueryClient();
-
+    const [page, setPage] = useState<number>(1)
     const { handleSubmit, register } = useForm<TodoType>()
     const { data: todos, isFetching, refetch } = useQuery({
-        queryKey: ['todos'],
-        queryFn: () => axios.get("/api/todos")
+        queryKey: ['todos', page],
+        staleTime: 10000,
+        queryFn: () => axios.get("/api/todos?page=" + page)
             .then(x => x.data)
     })
 
@@ -62,14 +63,17 @@ export default function Todo({ }: Props) {
             </form>
 
             <button disabled={isPending} onClick={() => refetch()}>Refetch</button>
-
+            <hr />
+            <Pagination count={todos?.totalPages}  page={page} onChange={(_e, v) => setPage(v)}></Pagination>
+            {/* <button disabled={page == 1} onClick={() => setPage(page - 1)}>Prev</button>
+            {page}
+            <button disabled={todos && page == todos.totalPages} onClick={() => setPage(page + 1)}>Next</button> */}
             <hr />
             {
                 isFetching ? <CircularProgress />
                     :
                     todos?.items.map((x: any) => <fieldset>
-                        <h1>{x.title}</h1>
-                        <p> {x.description}</p>
+                        {x.title}
                     </fieldset>
                     )
             }
