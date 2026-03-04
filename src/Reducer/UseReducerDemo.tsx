@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 
 type Props = {}
 
@@ -20,6 +20,12 @@ export default function UseReducerDemo({ }: Props) {
     const [value, dispatch] = useReducer(reducerFunction, 0)
 
     const [counter, setState] = useState(0)
+
+    useEffect(() => {
+        if (Math.random() > 0.5) {
+            throw Error("test error")
+        }
+    }, [])
 
     return (
         <div>
