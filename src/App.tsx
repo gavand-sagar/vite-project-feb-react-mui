@@ -22,6 +22,7 @@ import {
 import TanstackWithParam from './Tanstack/TanstackWithParam'
 import Todo from './Tanstack/Todo'
 import Counter from './Counter'
+import DemoForMemo from './DemoForMemo/DemoForMemo'
 
 
 const SimpleRedux2 = lazy(() => import('./Redux-demos/components/SimpleRedux2'))
@@ -74,6 +75,9 @@ function App() {
         <Link to={'/CounterClassComponent'}>
           <Button variant='contained'>Counter Class Component</Button>
         </Link>
+        <Link to={'/DemoForMemo'}>
+          <Button variant='contained'>DemoForMemo</Button>
+        </Link>
       </Box>
       <Suspense fallback={<>FallbackPage</>}>
         <Routes>
@@ -90,6 +94,7 @@ function App() {
           <Route path='/TanstackWithParam' element={<TanstackWithParam />} />
           <Route path='/TanstackTodos' element={<Todo />} />
           <Route path='/CounterClassComponent' element={<Counter value={6} />} />
+          <Route path='/DemoForMemo' element={<DemoForMemo />} />
           <Route path='/' element={<MainApp />} />
         </Routes>
       </Suspense>
