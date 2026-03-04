@@ -23,7 +23,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
     componentDidCatch(error: any, errorInfo: any) {
         // You can also log the error to an error reporting service
-        //logErrorToMyService(error, errorInfo);
+        console.log(error, errorInfo);
     }
 
     render() {
