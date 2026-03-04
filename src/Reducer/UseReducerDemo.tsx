@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import Mybutton from '../Mybutton'
 
+
 type Props = {}
 
 function reducerFunction(prev_state: any, action: any): number {
@@ -28,12 +29,20 @@ export default function UseReducerDemo({ }: Props) {
     //     }
     // }, [])
 
+    function handleClick() {
+        import('../util').then(util => {
+            util.showCommonAlert()
+        })
+    }
+
     return (
         <div>
             <h1>UseReducerDemo</h1>
 
+            <button onClick={handleClick}>Dynamic Import</button>
+
             <Mybutton onClick={() => console.log('clicked')}>Save</Mybutton>
-            <Mybutton onMouseEnter={()=> console.log("Hover")}>Save</Mybutton>
+            <Mybutton onMouseEnter={() => console.log("Hover")}>Save</Mybutton>
             <Mybutton>Update</Mybutton>
             <Mybutton>
                 <h1>Hey</h1>

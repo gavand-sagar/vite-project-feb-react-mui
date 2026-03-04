@@ -3,3 +3,8 @@ export type propType = {
     age?: number;
     profession: "superhero" | "developer" | "doctor" | "singer";
 }
+
+
+export function showCommonAlert() {
+    alert("hie")
+}

@@ -1,4 +1,5 @@
 import { Link, Route, Routes } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 import './App.css'
 import Lab3 from './HandleInput/Lab3'
 import Lab4 from './HandleInput/Lab4'
@@ -10,8 +11,8 @@ import UseReducerCart from './Reducer/UseReducerCart'
 import UseReducerDemo from './Reducer/UseReducerDemo'
 import MainApp from './ContextDemo/MainApp'
 import MuiTheme from './MUITheme/MuiTheme'
-import SimpleRedux from './Redux-demos/components/SimpleRedux'
-import SimpleRedux2 from './Redux-demos/components/SimpleRedux2'
+// import SimpleRedux from './Redux-demos/components/SimpleRedux'
+// import SimpleRedux2 from './Redux-demos/components/SimpleRedux2'
 import { Box, Button } from '@mui/material'
 import Tanstack from './Tanstack/Tanstack'
 import {
@@ -22,6 +23,9 @@ import TanstackWithParam from './Tanstack/TanstackWithParam'
 import Todo from './Tanstack/Todo'
 import Counter from './Counter'
 
+
+const SimpleRedux2 = lazy(() => import('./Redux-demos/components/SimpleRedux2'))
+const SimpleRedux = lazy(() => import('./Redux-demos/components/SimpleRedux'))
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -71,22 +75,24 @@ function App() {
           <Button variant='contained'>Counter Class Component</Button>
         </Link>
       </Box>
-      <Routes>
-        <Route path='/SimpleRedux2' element={<SimpleRedux2 />} />
-        <Route path='/SimpleRedux' element={<SimpleRedux />} />
-        <Route path='/MuiTheme' element={<MuiTheme />} />
-        <Route path='/Products' element={<UseReducerDemo />} />
-        <Route path='/Products/:name/:something' element={<MUIAndHookForm />} />
-        <Route path='/PropDrillA' element={<PropDrillA />} />
-        <Route path='/ReactHookForm' element={<ReactHookForm />} />
-        <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
-        <Route path='/ContextDemo' element={<MainApp />} />
-        <Route path='/Tanstack' element={<Tanstack />} />
-        <Route path='/TanstackWithParam' element={<TanstackWithParam />} />
-        <Route path='/TanstackTodos' element={<Todo />} />
-        <Route path='/CounterClassComponent' element={<Counter value={6}/>} />
-        <Route path='/' element={<MainApp />} />
-      </Routes>
+      <Suspense fallback={<>FallbackPage</>}>
+        <Routes>
+          <Route path='/SimpleRedux2' element={<SimpleRedux2 />} />
+          <Route path='/SimpleRedux' element={<SimpleRedux />} />
+          <Route path='/MuiTheme' element={<MuiTheme />} />
+          <Route path='/Products' element={<UseReducerDemo />} />
+          <Route path='/Products/:name/:something' element={<MUIAndHookForm />} />
+          <Route path='/PropDrillA' element={<PropDrillA />} />
+          <Route path='/ReactHookForm' element={<ReactHookForm />} />
+          <Route path='/UseReducerDemo' element={<UseReducerDemo />} />
+          <Route path='/ContextDemo' element={<MainApp />} />
+          <Route path='/Tanstack' element={<Tanstack />} />
+          <Route path='/TanstackWithParam' element={<TanstackWithParam />} />
+          <Route path='/TanstackTodos' element={<Todo />} />
+          <Route path='/CounterClassComponent' element={<Counter value={6} />} />
+          <Route path='/' element={<MainApp />} />
+        </Routes>
+      </Suspense>
     </QueryClientProvider>
   )
 }
